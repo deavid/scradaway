@@ -1,0 +1,104 @@
+<scradaway-config>
+    <!-- This is an example configuration that ships by default -->
+    
+    <database>
+        <!-- currently only PostgreSQL by psycopg2 is supported. Python DBAPI 
+        could make easy to implement more drivers later -->
+        <host>127.0.0.1</host>
+        <port>5432</port>
+        <database>scradaway</database>
+        <username>postgres</username>
+        <password>postgres</password>
+    </database>
+    
+    <sites>
+        <site>
+            <name>buscaprod-prestashop-demo</name>
+            <start-url>http://buscaprod.com/ps/index.php</start-url>
+            <include>
+                ^http://buscaprod.com/ps/.*
+            </include>
+            <exclude>
+                \.(jpg|png|gif)($|\?)
+                \.(js|css)($|\?)
+                &amp;amp;amp;
+                &amp;amp%3Bamp%3B
+            </exclude>
+            <json-download>
+                <property>
+                    <name>title</name>
+                    <css>.primary_block h1</css>
+                </property>
+                <property>
+                    <name>description</name>
+                    <css>.pb-center-column #short_description_block #short_description_content p</css>
+                </property>
+                <property>
+                    <name>reference</name>
+                    <css>#product_reference span</css>
+                </property>
+                
+            </json-download>
+                
+        </site>
+            
+        <!--site>
+            <name>bio-rad.com</name>
+            <start-url>http://www.bio-rad.com/de-at/category/digital-pcr?pcp_loc=catprod</start-url>
+            <include>
+                ^http://www.bio-rad.com/.*
+            </include>
+            <exclude>
+                \.(jpg|png|gif)($|\?)
+                \.(js|css)($|\?)
+            </exclude>
+            <json-download>
+                <property>
+                    <name>title</name>
+                    <css>h1.productSKU_Header, h1.pdp_header, h1.pcp_header, div#contentmainwrapper.cart h1, div#contentmainwrapper.checkout h1</css>
+                </property>
+                <property>
+                    <name>teaser</name>
+                    <css>#productmidmain, #product</css>
+                </property>
+                <property>
+                    <name>description</name>
+                    <css>#contentmainwrapper .description </css>
+                </property>
+                
+            </json-download>
+                
+        </site>
+        <site>
+            <name>termofisher.com</name>
+            <start-url>https://www.thermofisher.com/order/genome-database/searchResults?productTypeSelect=antibody&amp;species=ltechall&amp;targetTypeSelect=antibody_primary&amp;keyword=</start-url>
+            <include>
+                ^https?://www.thermofisher.com/.*
+            </include>
+            <exclude>
+                \.(jpg|png|gif)($|\?)
+                \.(js|css)($|\?)
+            </exclude>
+            <json-download>
+                <property>
+                    <name>title</name>
+                    <css>h1.pageheader</css>
+                </property>
+                <property>
+                    <name>teaser</name>
+                    <css>#pdp-product-maintext</css>
+                </property>
+                <property>
+                    <name>description</name>
+                    <css>.product-specification-information-segment</css>
+                </property>
+                
+            </json-download>
+                
+        </site-->
+
+                
+        <!-- you can add more here -->
+    </sites>
+                
+</scradaway-config>
